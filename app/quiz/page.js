@@ -1,14 +1,27 @@
 'use client'
 
 import { useState } from "react";
+import "./quiz.css"
 
 function Quiz(){
     const[p1,alteraP1]=useState(0)
     const[p2,alteraP2]=useState(0)
     const[p3,alteraP3]=useState(0)
-    const[total, alteraTotal]= useState(0)
-    
-    return ( 
+    const[p4, alteraP4]=useState("")
+    const[total, alteraTotal]= useState(0)  
+
+
+    const[selecionado,alteraSelecionado]=useState(["","","",""] )
+
+    function calculaPontos(){
+        alteraTotal(p1+p2+p3)
+        if (p4=="Tropa de Elite"){
+            alteraTotal(total+1)
+        }
+    }   
+
+
+    return (  
         <div>
 
             <h1> Quiz Conradito</h1>
@@ -34,18 +47,17 @@ function Quiz(){
             <label><input name="p2" type="radio" on onChange={()=> alteraP2(0)}/> X </label>
             <br/>
             <hr/>
-            <h2> Quanto é dois+2?</h2>
-            <ul>
-            <li onClick> ={()=> alteraP3(0)}2</li>
-            <br/>
-            <li><input name="p1" type ="radio" on onChange={()=> alteraP3(0)} /> 0</li>
-            <br/>
-            <li><input name="p1" type ="radio" on onChange={()=> alteraP3(0)} /> aaaaa</li>
-            <br/>
-            <li><input name="p1" type ="radio" on onChange={()=> alteraP3(1)} /> sim</li>
-            </ul>
+            <h2> Quanto é dois + 2?</h2>
+            <p className= {selecionado[0]} onClick={()=> { alteraP3 (0); alteraSelecionado(["selecionado","","",""])}}>2</p>
+            <p className= {selecionado[1]} onClick={()=> {alteraP3 (0); alteraSelecionado(["","selecionado","",""])}}>0</p>
+            <p className= {selecionado[2]} onClick={()=> {alteraP3 (1); alteraSelecionado(["","","selecionado",""])}}>aaaaa</p>
+            <p className= {selecionado[3]} onClick={()=> {alteraP3 (0); alteraSelecionado(["","","","selecionado"])}}>sim</p>
+
+             <hr/>
+            <h2> Qual é o melhor filme do mundo?</h2>
+          <input onChange={(e)=> alteraP4(e.target.value)}/>
+
             
-            
             <br/>
 
 
@@ -54,24 +66,9 @@ function Quiz(){
 
 
 
+        <button onClick={ ()=>calculaPontos() }Enviar resposta >Enviar</button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <button onClick={()=> alteraTotal(p1+p2)}>Enviar resposta</button>
-
-            <p>Total de pontos:{total}</p>
+            <p>Total de pontos = {total}</p>
 
 
            
@@ -86,7 +83,7 @@ function Quiz(){
 
 
 
-
+    
     );
 }
 
