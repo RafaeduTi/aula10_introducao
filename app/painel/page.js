@@ -1,4 +1,5 @@
 'use client'
+import Produtos from "../produtos/page";
 import "./painel.css"
 import { useState } from "react";
 
@@ -40,6 +41,10 @@ function Painel () {
        
         <div>
             <h1>Painel Administrativo</h1>
+
+        
+
+
             <label>
                 Digite o usuário:
                 <input onChange={(e)=> alteraUsuario (e.target.value)  }/>

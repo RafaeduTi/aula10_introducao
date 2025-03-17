@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import "./quiz.css"
+import Menu from "../produtos/components/Menu";
 
 function Quiz(){
     const[p1,alteraP1]=useState(0)
@@ -23,7 +24,6 @@ function Quiz(){
 
     return (  
         <div>
-
             <h1> Quiz Conradito</h1>
             <p> Assina-le a opção correta!</p>
             <hr/>
