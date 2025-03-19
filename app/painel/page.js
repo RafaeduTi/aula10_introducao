@@ -9,7 +9,7 @@ function Painel () {
     
     const[usuario, alteraUsuario]=useState ("")
     const[senha, alteraSenha]=useState ("")
-    const[mostraSuceso, alteraMostraSucesso]=useState("")
+    const[mostraSucesso, alteraMostraSucesso]=useState("")
     const[mostraErro, alteraMostraErro]= useState()
    
 
